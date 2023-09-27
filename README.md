@@ -5,9 +5,9 @@
 ### Part C
 **Prompt:** Customize the HTML user interface for your customer’s application. The user interface should include the
 shop name, the product names, and the names of the parts.  
-**File name:**  
-**Line:**  
-**Change:**
+**File name:** mainscreen.html
+**Lines:** 14, 19, 21, 53
+**Change:** Updating title, shop name, parts title, and products title.
 
 ### Part D
 **Prompt:** Add an “About” page to the application to describe your chosen customer’s company to web viewers and include

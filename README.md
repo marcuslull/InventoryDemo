@@ -5,16 +5,17 @@
 ### Part C
 **Prompt:** Customize the HTML user interface for your customer’s application. The user interface should include the
 shop name, the product names, and the names of the parts.  
-**File name:** mainscreen.html
-**Lines:** 14, 19, 21, 53
+**File name:** mainscreen.html  
+**Lines:** 14, 19, 21, 53  
 **Change:** Updating title, shop name, parts title, and products title.
 
 ### Part D
 **Prompt:** Add an “About” page to the application to describe your chosen customer’s company to web viewers and include
 navigation to and from the “About” page and the main screen.  
-**File name:**  
-**Line:**  
-**Change:**
+**File name:** mainscreen.html, AboutController.java, about.html  
+**Line:** mainscreen.html - line 20. AboutController.java - new file. about.html - new file  
+**Change:** Created a new about html document and about controller with links to and from the mainscreen.html document.
+Added about text with formatting elements to about.html
 
 ### Part E
 **Prompt:** Add a sample inventory appropriate for your chosen store to the application. You should have five parts and

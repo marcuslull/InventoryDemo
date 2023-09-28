@@ -38,15 +38,26 @@ public class AddInhousePartController{
 
     @PostMapping("/showFormAddInPart")
     public String submitForm(@Valid @ModelAttribute("inhousepart") InhousePart part, BindingResult theBindingResult, Model theModel){
+
         theModel.addAttribute("inhousepart",part);
         if(theBindingResult.hasErrors()){
             return "InhousePartForm";
         }
         else{
-        InhousePartService repo=context.getBean(InhousePartServiceImpl.class);
-        InhousePart ip=repo.findById((int)part.getId());
-        if(ip!=null)part.setProducts(ip.getProducts());
-            repo.save(part);
+        InhousePartService repo = context.getBean(InhousePartServiceImpl.class);
+        InhousePart ip = repo.findById((int)part.getId());
+        if (ip!=null) {
+            part.setProducts(ip.getProducts());
+        }
+
+        // min/max violation check
+        // Not sure what to do other than return the outsourced part form. Part G only specifies: "Modify the code to enforce that the inventory is between or at the minimum and maximum value."
+        if (part.getInv() < part.getMin() || part.getInv() > part.getMax()) {
+            System.out.println("******MIN/MAX CONSTRAINT VIOLATED******");
+            return "InhousePartForm";
+        }
+
+        repo.save(part);
 
         return "confirmationaddpart";}
     }

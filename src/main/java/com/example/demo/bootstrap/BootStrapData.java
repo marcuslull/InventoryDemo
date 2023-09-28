@@ -114,6 +114,8 @@ public class BootStrapData implements CommandLineRunner {
         premiumWarranty.setInv(999);
         premiumWarranty.setPartId(1);
         premiumWarranty.setProducts(new HashSet<>(List.of(warranty2)));
+        premiumWarranty.setMin(997);
+        premiumWarranty.setMax(999);
         inhousePartRepository.save(premiumWarranty);
 
         InhousePart basicWarranty = new InhousePart();
@@ -122,6 +124,8 @@ public class BootStrapData implements CommandLineRunner {
         basicWarranty.setInv(999);
         basicWarranty.setPartId(2);
         basicWarranty.setProducts(new HashSet<>(List.of(warranty1)));
+        basicWarranty.setMin(997);
+        basicWarranty.setMax(999);
         inhousePartRepository.save(basicWarranty);
 
         // Outsourced parts
@@ -132,6 +136,8 @@ public class BootStrapData implements CommandLineRunner {
         premiumCPU.setInv(10);
         premiumCPU.setCompanyName("MicroTronics Direct");
         premiumCPU.setProducts(new HashSet<>(List.of(computer1)));
+        premiumCPU.setMin(3);
+        premiumCPU.setMax(10);
         outsourcedPartRepository.save(premiumCPU);
 
         OutsourcedPart budgetCPU = new OutsourcedPart();
@@ -140,6 +146,8 @@ public class BootStrapData implements CommandLineRunner {
         budgetCPU.setInv(10);
         budgetCPU.setCompanyName("MicroTronics Direct");
         budgetCPU.setProducts(new HashSet<>(List.of(computer2, computer3)));
+        budgetCPU.setMin(3);
+        budgetCPU.setMax(10);
         outsourcedPartRepository.save(budgetCPU);
 
         // RAM options
@@ -149,6 +157,8 @@ public class BootStrapData implements CommandLineRunner {
         ultraRAM.setInv(10);
         ultraRAM.setCompanyName("MicroTronics Direct");
         ultraRAM.setProducts(new HashSet<>(List.of(computer1, computer2)));
+        ultraRAM.setMin(3);
+        ultraRAM.setMax(10);
         outsourcedPartRepository.save(ultraRAM);
 
         OutsourcedPart stableRAM = new OutsourcedPart();
@@ -157,6 +167,8 @@ public class BootStrapData implements CommandLineRunner {
         stableRAM.setInv(10);
         stableRAM.setCompanyName("MicroTronics Direct");
         stableRAM.setProducts(new HashSet<>(List.of(computer3)));
+        stableRAM.setMin(3);
+        stableRAM.setMax(10);
         outsourcedPartRepository.save(stableRAM);
 
         // Disk drive options
@@ -166,6 +178,8 @@ public class BootStrapData implements CommandLineRunner {
         solidStateDrive.setInv(10);
         solidStateDrive.setCompanyName("MicroTronics Direct");
         solidStateDrive.setProducts(new HashSet<>(List.of(computer1, computer2)));
+        solidStateDrive.setMin(3);
+        solidStateDrive.setMax(10);
         outsourcedPartRepository.save(solidStateDrive);
 
         OutsourcedPart hardDiskDrive = new OutsourcedPart();
@@ -174,6 +188,8 @@ public class BootStrapData implements CommandLineRunner {
         hardDiskDrive.setInv(10);
         hardDiskDrive.setCompanyName("MicroTronics Direct");
         hardDiskDrive.setProducts(new HashSet<>(List.of(computer3)));
+        hardDiskDrive.setMin(3);
+        hardDiskDrive.setMax(10);
         outsourcedPartRepository.save(hardDiskDrive);
 
         // Motherboard options
@@ -183,6 +199,8 @@ public class BootStrapData implements CommandLineRunner {
         motherboardATX.setInv(10);
         motherboardATX.setCompanyName("MicroTronics Direct");
         motherboardATX.setProducts(new HashSet<>(List.of(computer1)));
+        motherboardATX.setMin(3);
+        motherboardATX.setMax(10);
         outsourcedPartRepository.save(motherboardATX);
 
         OutsourcedPart motherboardAIO = new OutsourcedPart();
@@ -191,6 +209,8 @@ public class BootStrapData implements CommandLineRunner {
         motherboardAIO.setInv(10);
         motherboardAIO.setCompanyName("MicroTronics Direct");
         motherboardAIO.setProducts(new HashSet<>(List.of(computer2, computer3)));
+        motherboardAIO.setMin(3);
+        motherboardAIO.setMax(10);
         outsourcedPartRepository.save(motherboardAIO);
 
         // Chassis options
@@ -200,14 +220,18 @@ public class BootStrapData implements CommandLineRunner {
         tower.setInv(10);
         tower.setCompanyName("MicroTronics Direct");
         tower.setProducts(new HashSet<>(List.of(computer1)));
+        tower.setMin(3);
+        tower.setMax(10);
         outsourcedPartRepository.save(tower);
 
         OutsourcedPart microDesk = new OutsourcedPart();
         microDesk.setName("MicroATX desktop chassis");
         microDesk.setPrice(114.95);
-        microDesk.setInv(10);
+        microDesk.setInv(2);
         microDesk.setCompanyName("MicroTronics Direct");
         microDesk.setProducts(new HashSet<>(List.of(computer2, computer3)));
+        microDesk.setMin(1);
+        microDesk.setMax(3);
         outsourcedPartRepository.save(microDesk);
     }
 }

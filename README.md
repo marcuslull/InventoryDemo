@@ -24,7 +24,7 @@ Added about text with formatting elements to about.html
 **Prompt:** Add a sample inventory appropriate for your chosen store to the application. You should have five parts and
 five products in your sample inventory and should not overwrite existing data in the database.  
 **File name:** BootStrapData.java
-**Line:** 28, 36, 42, 80-212
+**Line:** 28, 36, 42, 80-212  
 **Change:** Adding data loader method to add example data to the DB
 
 ### Part F
@@ -33,8 +33,8 @@ five products in your sample inventory and should not overwrite existing data in
 *  The button should decrement the inventory of that product by one. It should not affect the inventory of any of the
 * associated parts.
 *  Display a message that indicates the success or failure of a purchase.  
-**File name:** mainscreen.html, AddProductController.java, falurebuyproduct.html, confirmationbuyproduct.html, ProductService.java, and ProductServiceImpl.java
-**Lines:** mainscreen.html - 86-87, AddProductController.java - 125-137, falurebuyproduct.html - new file, confirmationbuyproduct.html - new file, ProductService.java - 20, ProductServiceImpl.java - 51-64
+**File name:** mainscreen.html, AddProductController.java, falurebuyproduct.html, confirmationbuyproduct.html, ProductService.java, and ProductServiceImpl.java  
+**Lines:** mainscreen.html - 86-87, AddProductController.java - 125-137, falurebuyproduct.html - new file, confirmationbuyproduct.html - new file, ProductService.java - 20, ProductServiceImpl.java - 51-64  
 **Change:** Adding buy now functionality. Implemented a buyById ProductService method and a /buyproduct endpoint in the AddProductController which decrements the product quantity depending on availability and directs the user to a success/failure page.
 
 ### Part G
@@ -45,9 +45,9 @@ five products in your sample inventory and should not overwrite existing data in
 * the maximum and minimum values.
 *  Rename the file the persistent storage is saved to.
 *  Modify the code to enforce that the inventory is between or at the minimum and maximum value.  
-**File name:**  
-**Line:**  
-**Change:**
+**File name:** Part.java, BootStrapData.java, InhousePartForm.html, OutsourcedPartForm.html, AddInhousePartController.java, AddOutsourcedPartController.java  
+**Lines:** Part.java - 32-50, InhousePartForm.html - 26-29, OutsourcedPartForm.html - 27-30, AddInhousePartController.java - 52-59, AddOutsourcedPartController.java - 53-60  
+**Change:** Adding min/max fields for the part entity as well as the 2 part views. Adding if block to respective controllers to log the constraint violation and return the view.
 
 ### Part H
 **Prompt:** Add validation for between or at the maximum and minimum fields. The validation must include the following:

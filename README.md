@@ -2,6 +2,8 @@
 
 ## Change Log
 
+# DONT FORGET ABOUT NOT OVERWRITING DB!!!
+
 ### Part C
 **Prompt:** Customize the HTML user interface for your customer’s application. The user interface should include the
 shop name, the product names, and the names of the parts.  
@@ -20,9 +22,9 @@ Added about text with formatting elements to about.html
 ### Part E
 **Prompt:** Add a sample inventory appropriate for your chosen store to the application. You should have five parts and
 five products in your sample inventory and should not overwrite existing data in the database.  
-**File name:**  
-**Line:**  
-**Change:**
+**File name:** BootStrapData.java
+**Line:** 28, 36, 42, 80-212
+**Change:** Adding data loader method to add example data to the DB
 
 ### Part F
 **Prompt:** Add a “Buy Now” button to your product list. Your “Buy Now” button must meet each of the following parameters:

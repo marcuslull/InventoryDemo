@@ -8,6 +8,7 @@ import com.example.demo.service.ProductService;
 import com.example.demo.service.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -120,6 +121,19 @@ public class AddProductController {
         productService.deleteById(theId);
 
         return "confirmationdeleteproduct";
+    }
+
+    @GetMapping("/buyproduct")
+    public String buyProduct(@RequestParam("productID") int theId) {
+
+        // get the ProductService bean since constructor injection was not implemented by original author
+        ProductService productService = context.getBean(ProductServiceImpl.class);
+
+        // inventory check
+        if (productService.buyById(theId)) {
+            return "confirmationbuyproduct";
+        }
+        else { return "failurebuyproduct"; }
     }
 
     public AddProductController(PartService partService) {

@@ -3,6 +3,7 @@
 ## Change Log
 
 # DONT FORGET ABOUT NOT OVERWRITING DB!!!
+# ALSO LAST THING QC LINE NUMBERS
 
 ### Part C
 **Prompt:** Customize the HTML user interface for your customer’s application. The user interface should include the
@@ -32,9 +33,9 @@ five products in your sample inventory and should not overwrite existing data in
 *  The button should decrement the inventory of that product by one. It should not affect the inventory of any of the
 * associated parts.
 *  Display a message that indicates the success or failure of a purchase.  
-**File name:**  
-**Line:**  
-**Change:**
+**File name:** mainscreen.html, AddProductController.java, falurebuyproduct.html, confirmationbuyproduct.html, ProductService.java, and ProductServiceImpl.java
+**Lines:** mainscreen.html - 86-87, AddProductController.java - 125-137, falurebuyproduct.html - new file, confirmationbuyproduct.html - new file, ProductService.java - 20, ProductServiceImpl.java - 51-64
+**Change:** Adding buy now functionality. Implemented a buyById ProductService method and a /buyproduct endpoint in the AddProductController which decrements the product quantity depending on availability and directs the user to a success/failure page.
 
 ### Part G
 **Prompt:** Modify the parts to track maximum and minimum inventory by doing the following:

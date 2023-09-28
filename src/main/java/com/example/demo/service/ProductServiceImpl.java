@@ -50,6 +50,20 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
+    public boolean buyById(int theId) {
+
+        Product product = findById(theId);
+
+        // check for inventory amount and return boolean
+        if (product.getInv() > 0) {
+            product.setInv(product.getInv() - 1);
+            productRepository.save(product);
+            return true;
+        }
+        else { return false; }
+    }
+
+    @Override
     public void save(Product theProduct) {
         productRepository.save(theProduct);
 

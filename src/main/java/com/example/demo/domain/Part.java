@@ -2,7 +2,6 @@ package com.example.demo.domain;
 
 import com.example.demo.validators.MaxConstraint;
 import com.example.demo.validators.MinConstraint;
-import com.example.demo.validators.ValidDeletePart;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -17,7 +16,6 @@ import java.util.Set;
  *
  */
 @Entity
-@ValidDeletePart
 @MinConstraint // custom validator for min inventory thresholds calculated @ runtime
 @MaxConstraint // custom validator for max inventory thresholds calculated @ runtime
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)

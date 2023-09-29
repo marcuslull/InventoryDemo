@@ -66,9 +66,9 @@ five products in your sample inventory and should not overwrite existing data in
 
 ### Part J
 **Prompt:** Remove the class files for any unused validators in order to clean your code.  
-**File name:**  
-**Line:**  
-**Change:**
+**File name:** ValidDeletePart.java, DeletePartValidator.java, Part.java  
+**Line:** ValidDeletePart.java - deleted file, DeletePartValidator.java - deleted file, Part.java - 19  
+**Change:** Removed custom validator ValidDeletePart.java and DeletePartValidator.java since this requirement is handled by the if/else in the /deletepart endpoint which returns an error view.
 
 
 

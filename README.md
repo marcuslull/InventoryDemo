@@ -54,9 +54,9 @@ five products in your sample inventory and should not overwrite existing data in
 *  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
 *  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
 *  Display error messages when adding and updating parts if the inventory is greater than the maximum.  
-**File name:**  
-**Line:**  
-**Change:**
+**File name:** BootStrapData.java, AddInhousePartController.java, AddOutsourcedPartController.java, AddProductController.java, Part.java, MaxConstraint.java, MaxValidator.java, MinConstraint.java, MinValidator.java, inhousePartForm.html, OutsourcedPartForm.html, productForm.html  
+**Lines:** BootStrapData.java - 233, AddInhousePartController.java - 53-59, AddOutsourcedPartController.java - 50-56, AddProductController.java - 54-58, 82-100, Part.java - 21-22, 35, 37, 61-76, MaxConstraint.java - new file, MaxValidator.java - new file, MinConstraint.java - new file, MinValidator.java - new file, inhousePartForm.html - 22-23, 29,32, OutsourcedPartForm.html - 23-24, 30, 33, productForm.html 25-35  
+**Change:** Implementing new custom constraint validators for the part class to check that inventory levels are between min/max thresholds. Any validation violations are caught and displayed by the appropriate view. 
 
 ### Part I
 **Prompt:** Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.  

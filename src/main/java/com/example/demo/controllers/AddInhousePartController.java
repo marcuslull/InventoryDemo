@@ -50,12 +50,13 @@ public class AddInhousePartController{
             part.setProducts(ip.getProducts());
         }
 
+        // Task from Part G - this is no longer needed since it is preempted/handled by the validation implemented in Part H. Leaving code commented for evaluators inspection
         // min/max violation check
-        // Not sure what to do other than return the outsourced part form. Part G only specifies: "Modify the code to enforce that the inventory is between or at the minimum and maximum value."
-        if (part.getInv() < part.getMin() || part.getInv() > part.getMax()) {
-            System.out.println("******MIN/MAX CONSTRAINT VIOLATED******");
-            return "InhousePartForm";
-        }
+        // Not sure what to do other than return the outsourced part form and log. Task G only specifies: "Modify the code to enforce that the inventory is between or at the minimum and maximum value."
+//        if (part.getInv() < part.getMin() || part.getInv() > part.getMax()) {
+//            System.out.println("******MIN/MAX CONSTRAINT VIOLATED******");
+//            return "minMaxViolation";
+//        }
 
         repo.save(part);
 

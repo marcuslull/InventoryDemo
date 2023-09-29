@@ -230,7 +230,7 @@ public class BootStrapData implements CommandLineRunner {
         microDesk.setInv(2);
         microDesk.setCompanyName("MicroTronics Direct");
         microDesk.setProducts(new HashSet<>(List.of(computer2, computer3)));
-        microDesk.setMin(1);
+        microDesk.setMin(2);
         microDesk.setMax(3);
         outsourcedPartRepository.save(microDesk);
     }

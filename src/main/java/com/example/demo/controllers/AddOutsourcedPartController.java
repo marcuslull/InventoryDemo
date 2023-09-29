@@ -1,12 +1,9 @@
 package com.example.demo.controllers;
 
-import com.example.demo.domain.InhousePart;
 import com.example.demo.domain.OutsourcedPart;
 import com.example.demo.domain.Part;
 import com.example.demo.service.OutsourcedPartService;
 import com.example.demo.service.OutsourcedPartServiceImpl;
-import com.example.demo.service.PartService;
-import com.example.demo.service.PartServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -15,7 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 
@@ -51,12 +47,13 @@ public class AddOutsourcedPartController {
             part.setProducts(op.getProducts());
         }
 
-        // min/max violation check
-        // Not sure what to do other than return the outsourced part form. Part G only specifies: "Modify the code to enforce that the inventory is between or at the minimum and maximum value."
-        if (part.getInv() < part.getMin() || part.getInv() > part.getMax()) {
-            System.out.println("******MIN/MAX CONSTRAINT VIOLATED******");
-            return "OutsourcedPartForm";
-        }
+            // Task from Part G - this is no longer needed since it is preempted/handled by the validation implemented in Part H. Leaving code commented for evaluators inspection
+            // min/max violation check
+            // Not sure what to do other than return the outsourced part form and log. Task G only specifies: "Modify the code to enforce that the inventory is between or at the minimum and maximum value."
+//        if (part.getInv() < part.getMin() || part.getInv() > part.getMax()) {
+//            System.out.println("******MIN/MAX CONSTRAINT VIOLATED******");
+//            return "minMaxViolation";
+//        }
 
         repo.save(part);
         return "confirmationaddpart";}

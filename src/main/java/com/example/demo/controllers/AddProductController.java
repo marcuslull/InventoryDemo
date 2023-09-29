@@ -8,12 +8,10 @@ import com.example.demo.service.ProductService;
 import com.example.demo.service.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,11 +51,15 @@ public class AddProductController {
     public String submitForm(@Valid @ModelAttribute("product") Product product, BindingResult bindingResult, Model theModel) {
         theModel.addAttribute("product", product);
 
+        // changed scope on these vars so I could make use of them
+        ProductService productService = context.getBean(ProductServiceImpl.class);
+        List<Part> availParts;
+        Product product2;
+
         if(bindingResult.hasErrors()){
-            ProductService productService = context.getBean(ProductServiceImpl.class);
-            Product product2=productService.findById((int)product.getId());
+            product2 = productService.findById((int)product.getId());
             theModel.addAttribute("parts", partService.findAll());
-            List<Part>availParts=new ArrayList<>();
+            availParts = new ArrayList<>();
             for(Part p: partService.findAll()){
                 if(!product2.getParts().contains(p))availParts.add(p);
             }
@@ -71,13 +73,31 @@ public class AddProductController {
         else {
             ProductService repo = context.getBean(ProductServiceImpl.class);
             if(product.getId()!=0) {
-                Product product2 = repo.findById((int) product.getId());
+                product2 = repo.findById((int) product.getId());
                 PartService partService1 = context.getBean(PartServiceImpl.class);
                 if(product.getInv()- product2.getInv()>0) {
                     for (Part p : product2.getParts()) {
                         int inv = p.getInv();
                         p.setInv(inv - (product.getInv() - product2.getInv()));
-                        partService1.save(p);
+
+                        // check and catch min inventory validation. Display error message back to productform view
+                        try {
+                            partService1.save(p);
+                        }
+                        catch (Exception e) {
+                            String message = "Inventory part(s) would fall below established minimums";
+                            theModel.addAttribute("minviolation", message);
+
+                            // re-build the view
+                            availParts = new ArrayList<>();
+                            for(Part p2: partService.findAll()){
+                                if(!product2.getParts().contains(p2))availParts.add(p2);
+                            }
+                            theModel.addAttribute("availparts",availParts);
+                            theModel.addAttribute("assparts",product2.getParts());
+                            return "productform";
+                        }
+
                     }
                 }
             }

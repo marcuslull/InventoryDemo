@@ -1,5 +1,7 @@
 package com.example.demo.domain;
 
+import com.example.demo.validators.MaxConstraint;
+import com.example.demo.validators.MinConstraint;
 import com.example.demo.validators.ValidDeletePart;
 
 import javax.persistence.*;
@@ -16,6 +18,8 @@ import java.util.Set;
  */
 @Entity
 @ValidDeletePart
+@MinConstraint // custom validator for min inventory thresholds calculated @ runtime
+@MaxConstraint // custom validator for max inventory thresholds calculated @ runtime
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="part_type",discriminatorType = DiscriminatorType.INTEGER)
 @Table(name="Parts")
@@ -28,25 +32,10 @@ public abstract class Part implements Serializable {
     double price;
     @Min(value = 0, message = "Inventory value must be positive")
     int inv;
-
+    @Min(value = 0, message = "Inventory max value must be positive")
     int max;
+    @Min(value = 0, message = "Inventory min value must be positive")
     int min;
-
-    public int getMax() {
-        return max;
-    }
-
-    public void setMax(int max) {
-        this.max = max;
-    }
-
-    public int getMin() {
-        return min;
-    }
-
-    public void setMin(int min) {
-        this.min = min;
-    }
 
     @ManyToMany
     @JoinTable(name="product_part", joinColumns = @JoinColumn(name="part_id"),
@@ -67,6 +56,22 @@ public abstract class Part implements Serializable {
         this.name = name;
         this.price = price;
         this.inv = inv;
+    }
+
+    public int getMax() {
+        return max;
+    }
+
+    public void setMax(int max) {
+        this.max = max;
+    }
+
+    public int getMin() {
+        return min;
+    }
+
+    public void setMin(int min) {
+        this.min = min;
     }
 
     public long getId() {

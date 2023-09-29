@@ -60,9 +60,9 @@ five products in your sample inventory and should not overwrite existing data in
 
 ### Part I
 **Prompt:** Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.  
-**File name:**  
-**Line:**  
-**Change:**
+**File name:** PartTest.java  
+**Lines:** 159-180  
+**Change:** Adding two unit tests to PartTest.java for the min and max fields of the Part class
 
 ### Part J
 **Prompt:** Remove the class files for any unused validators in order to clean your code.  

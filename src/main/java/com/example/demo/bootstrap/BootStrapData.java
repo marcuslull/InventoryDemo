@@ -39,7 +39,11 @@ public class BootStrapData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        dataLoad();
+        //dataLoad();
+
+        if (partRepository.count() == 0) {
+            dataLoad();
+        }
 
        /*
         OutsourcedPart o= new OutsourcedPart();

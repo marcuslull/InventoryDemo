@@ -1,9 +1,12 @@
 # TASK 1: Web Based Spring Inventory Application
 
+---
+Marcus Lull  
+10/01/2023  
+D287 Java Frameworks
+
 ## Change Log
 
-# DONT FORGET ABOUT NOT OVERWRITING DB!!!
-# ALSO LAST THING QC LINE NUMBERS
 
 ### Part C
 **Prompt:** Customize the HTML user interface for your customer’s application. The user interface should include the
@@ -23,8 +26,8 @@ Added about text with formatting elements to about.html
 ### Part E
 **Prompt:** Add a sample inventory appropriate for your chosen store to the application. You should have five parts and
 five products in your sample inventory and should not overwrite existing data in the database.  
-**File name:** BootStrapData.java
-**Line:** 28, 36, 42, 80-212  
+**File name:** BootStrapData.java  
+**Line:** 28, 36, 42-46, 80-212  
 **Change:** Adding data loader method to add example data to the DB
 
 ### Part F
@@ -33,6 +36,7 @@ five products in your sample inventory and should not overwrite existing data in
 *  The button should decrement the inventory of that product by one. It should not affect the inventory of any of the
 * associated parts.
 *  Display a message that indicates the success or failure of a purchase.  
+
 **File name:** mainscreen.html, AddProductController.java, falurebuyproduct.html, confirmationbuyproduct.html, ProductService.java, and ProductServiceImpl.java  
 **Lines:** mainscreen.html - 86-87, AddProductController.java - 125-137, falurebuyproduct.html - new file, confirmationbuyproduct.html - new file, ProductService.java - 20, ProductServiceImpl.java - 51-64  
 **Change:** Adding buy now functionality. Implemented a buyById ProductService method and a /buyproduct endpoint in the AddProductController which decrements the product quantity depending on availability and directs the user to a success/failure page.
@@ -45,15 +49,18 @@ five products in your sample inventory and should not overwrite existing data in
 * the maximum and minimum values.
 *  Rename the file the persistent storage is saved to.
 *  Modify the code to enforce that the inventory is between or at the minimum and maximum value.  
+
 **File name:** Part.java, BootStrapData.java, InhousePartForm.html, OutsourcedPartForm.html, AddInhousePartController.java, AddOutsourcedPartController.java  
 **Lines:** Part.java - 32-50, InhousePartForm.html - 26-29, OutsourcedPartForm.html - 27-30, AddInhousePartController.java - 52-59, AddOutsourcedPartController.java - 53-60  
-**Change:** Adding min/max fields for the part entity as well as the 2 part views. Adding if block to respective controllers to log the constraint violation and return the view.
+**Change:** Adding min/max fields for the part entity as well as the 2 part views. Adding if block to respective controllers to log the constraint violation and return the view.  
+**Note:** Code for the last bullet of this prompt is no longer functional. I have commented out the code for your inspection, but it is rendered obsolete/ineffective by my implementation of Part H - Add Validation. Please take this into consideration while grading this part. Thank you!
 
 ### Part H
 **Prompt:** Add validation for between or at the maximum and minimum fields. The validation must include the following:
 *  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
 *  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
 *  Display error messages when adding and updating parts if the inventory is greater than the maximum.  
+
 **File name:** BootStrapData.java, AddInhousePartController.java, AddOutsourcedPartController.java, AddProductController.java, Part.java, MaxConstraint.java, MaxValidator.java, MinConstraint.java, MinValidator.java, inhousePartForm.html, OutsourcedPartForm.html, productForm.html  
 **Lines:** BootStrapData.java - 233, AddInhousePartController.java - 53-59, AddOutsourcedPartController.java - 50-56, AddProductController.java - 54-58, 82-100, Part.java - 21-22, 35, 37, 61-76, MaxConstraint.java - new file, MaxValidator.java - new file, MinConstraint.java - new file, MinValidator.java - new file, inhousePartForm.html - 22-23, 29,32, OutsourcedPartForm.html - 23-24, 30, 33, productForm.html 25-35  
 **Change:** Implementing new custom constraint validators for the part class to check that inventory levels are between min/max thresholds. Any validation violations are caught and displayed by the appropriate view. 
@@ -70,7 +77,13 @@ five products in your sample inventory and should not overwrite existing data in
 **Line:** ValidDeletePart.java - deleted file, DeletePartValidator.java - deleted file, Part.java - 19  
 **Change:** Removed custom validator ValidDeletePart.java and DeletePartValidator.java since this requirement is handled by the if/else in the /deletepart endpoint which returns an error view.
 
+<br>  
 
+***Thank your for your time!***
+
+---
+<br>
+<br>
 
 <strong>** DO NOT DISTRIBUTE OR PUBLICLY POST SOLUTIONS TO THESE LABS. MAKE ALL FORKS OF THIS REPOSITORY WITH SOLUTION CODE PRIVATE. PLEASE REFER TO THE STUDENT CODE OF CONDUCT AND ETHICAL EXPECTATIONS FOR COLLEGE OF INFORMATION TECHNOLOGY STUDENTS FOR SPECIFICS. ** </strong>
 
